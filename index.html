@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entry to Moeezland</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --green:#0a8a4a;
+  --dark:#0f2e4d;
+  --bg:#eef1f4;
+  --card:#ffffff;
+  --border:#dcdcdc;
+}
+
+*{box-sizing:border-box;font-family:Inter,system-ui,sans-serif;}
+
+body{margin:0;background:var(--bg);color:#111;}
+
+/* HEADER */
+header{
+  background:#f2f2f2;
+  padding:14px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+header img{height:42px;}
+.lang{font-size:14px;color:var(--green);}
+
+/* HERO */
+.hero{
+  background:
+    linear-gradient(to right, rgba(0,0,0,.55), rgba(0,0,0,.2)),
+    url("hero-placeholder.jpg") center/cover no-repeat;
+  color:white;
+  padding:90px 60px;
+}
+.hero .content{
+  max-width:520px;
+}
+.hero h1{font-size:42px;margin:0 0 12px;}
+.hero p{font-size:16px;line-height:1.6;}
+.hero button{
+  margin-top:24px;
+  background:var(--green);
+  border:none;
+  padding:14px 22px;
+  font-size:15px;
+  color:white;
+  cursor:pointer;
+}
+
+/* CARD GRID */
+.grid{
+  max-width:1200px;
+  margin:-60px auto 40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+  padding:0 24px;
+}
+.card{
+  background:var(--card);
+  padding:28px;
+  border-radius:6px;
+  text-align:center;
+}
+.card h3{margin-top:14px;font-size:17px;}
+.card p{font-size:14px;color:#444;}
+
+/* UPDATE BOX */
+.update{
+  max-width:1200px;
+  margin:30px auto;
+  background:#f9f9f9;
+  border-left:5px solid #d33;
+  padding:24px;
+}
+
+/* SECTIONS */
+.section{
+  max-width:1200px;
+  margin:40px auto;
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:30px;
+  background:#fff;
+  padding:32px;
+}
+.section h2{margin-top:0;}
+.section button{
+  margin-top:14px;
+  padding:10px 16px;
+  background:var(--dark);
+  color:white;
+  border:none;
+}
+
+/* FAQ */
+.faq{
+  max-width:1200px;
+  margin:40px auto;
+  background:#fff;
+  padding:32px;
+}
+.faq details{
+  border:1px solid var(--border);
+  padding:14px;
+  margin-bottom:10px;
+}
+
+/* FOOTER */
+footer{
+  background:var(--dark);
+  color:white;
+  padding:40px;
+}
+.footer-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:30px;
+}
+footer a{color:#cfe3ff;text-decoration:none;font-size:14px;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="icsa-logo.png" alt="ICSA">
+  <div class="lang">English</div>
+</header>
+
+<section class="hero">
+  <div class="content">
+    <h1>Entry to Moeezland</h1>
+    <p>
+      Official entry procedures, travel authorization,
+      and civil status services administered by the
+      Immigration & Civil Status Authority.
+    </p>
+    <button>Apply for Travel Authorization</button>
+  </div>
+</section>
+
+<section class="grid">
+  <div class="card"><h3>Check Entry Requirements</h3></div>
+  <div class="card"><h3>Travel Authorization</h3></div>
+  <div class="card"><h3>Explore Visa Options</h3></div>
+  <div class="card"><h3>Get Help</h3></div>
+</section>
+
+<section class="update">
+  <strong>Update</strong><br>
+  New entry authorization procedures are now in effect.
+</section>
+
+<section class="section">
+  <div>
+    <h2>What is Travel Authorization?</h2>
+    <p>
+      Certain visitors may be required to obtain authorization
+      prior to entry into Moeezland.
+    </p>
+    <button>Check eligibility</button>
+  </div>
+  <div><!-- illustration placeholder --></div>
+</section>
+
+<section class="section">
+  <div>
+    <h2>Civil Status Services</h2>
+    <p>
+      The Authority administers population records,
+      citizenship matters, and civil registration.
+    </p>
+    <button>Learn more</button>
+  </div>
+  <div></div>
+</section>
+
+<section class="faq">
+  <h2>FAQ</h2>
+  <details><summary>When should I apply?</summary></details>
+  <details><summary>How long is authorization valid?</summary></details>
+  <details><summary>How do I check my status?</summary></details>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <strong>Contact</strong><br>
+      Immigration & Civil Status Authority<br>
+      Government of Moeezland
+    </div>
+    <div>
+      <strong>Get help</strong><br>
+      <a href="#">Check eligibility</a><br>
+      <a href="#">Explore visas</a>
+    </div>
+    <div>
+      <strong>Site policies</strong><br>
+      <a href="#">Accessibility</a><br>
+      <a href="#">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
