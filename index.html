@@ -27,22 +27,17 @@ body{
   color:#111;
 }
 
-/* HEADER (ONLY CHANGE IS HERE) */
+/* HEADER */
 header{
   background:#f2f2f2;
-  padding:22px 32px; /* was 14px */
+  padding:22px 32px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   border-bottom:1px solid var(--border);
 }
-header img{
-  height:69px; /* was 42px */
-}
-.lang{
-  font-size:15px;
-  color:var(--green);
-}
+header img{height:69px;}
+.lang{font-size:15px;color:var(--green);}
 
 /* HERO */
 .hero{
@@ -59,14 +54,8 @@ header img{
   max-width:540px;
   animation:fadeUp .8s ease both;
 }
-.hero h1{
-  font-size:44px;
-  margin:0 0 14px;
-}
-.hero p{
-  font-size:16px;
-  line-height:1.6;
-}
+.hero h1{font-size:44px;margin:0 0 14px;}
+.hero p{font-size:16px;line-height:1.6;}
 .hero button{
   margin-top:26px;
   background:var(--green);
@@ -77,13 +66,13 @@ header img{
   cursor:pointer;
 }
 
-/* FADE ANIMATION */
+/* FADE */
 @keyframes fadeUp{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
-/* CARD GRID */
+/* GRID */
 .grid{
   max-width:1200px;
   margin:-80px auto 50px;
@@ -100,16 +89,17 @@ header img{
   text-align:center;
   border:1px solid var(--border);
   transition:transform .2s ease;
+  text-decoration:none;
+  color:inherit;
 }
-.card:hover{
-  transform:translateY(-4px);
+.card:hover{transform:translateY(-4px);}
+.card img{
+  height:64px;
+  margin-bottom:14px;
 }
-.card h3{
-  margin:0;
-  font-size:17px;
-}
+.card h3{margin:0;font-size:17px;}
 
-/* UPDATE BOX */
+/* UPDATE */
 .update{
   max-width:1200px;
   margin:30px auto;
@@ -132,9 +122,6 @@ header img{
   border-radius:6px;
   border:1px solid var(--border);
   animation:fadeUp .7s ease both;
-}
-.section h2{
-  margin-top:0;
 }
 .section button{
   margin-top:16px;
@@ -176,16 +163,8 @@ footer{
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:34px;
 }
-footer img{
-  height:80px;
-  width:auto;
-  margin-bottom:12px;
-}
-footer a{
-  color:#cfe3ff;
-  text-decoration:none;
-  font-size:14px;
-}
+footer img{height:80px;margin-bottom:12px;}
+footer a{color:#cfe3ff;text-decoration:none;font-size:14px;}
 </style>
 </head>
 
@@ -209,10 +188,25 @@ footer a{
 </section>
 
 <section class="grid">
-  <div class="card"><h3>Check Entry Requirements</h3></div>
-  <div class="card"><h3>Travel Authorization</h3></div>
-  <div class="card"><h3>Explore Visa Options</h3></div>
-  <div class="card"><h3>Get Help</h3></div>
+  <a href="entry.html" class="card">
+    <img src="entry-icon.png" alt="">
+    <h3>Check Entry Requirements</h3>
+  </a>
+
+  <a href="M_ETA.html" class="card">
+    <img src="eta-icon.png" alt="">
+    <h3>Travel Authorization</h3>
+  </a>
+
+  <a href="visa.html" class="card">
+    <img src="visa-icon.png" alt="">
+    <h3>Explore Visa Options</h3>
+  </a>
+
+  <a href="mailto:icsa@moeezland.com" class="card">
+    <img src="help-icon.png" alt="">
+    <h3>Get Help</h3>
+  </a>
 </section>
 
 <section class="update">
@@ -229,7 +223,7 @@ footer a{
     </p>
     <button>Check eligibility</button>
   </div>
-  <div><!-- illustration placeholder --></div>
+  <div></div>
 </section>
 
 <section class="section">
@@ -241,7 +235,7 @@ footer a{
     </p>
     <button>Learn more</button>
   </div>
-  <div><!-- illustration placeholder --></div>
+  <div></div>
 </section>
 
 <section class="faq">
