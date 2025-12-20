@@ -172,7 +172,15 @@ footer a{color:#cfe3ff;text-decoration:none;font-size:14px;}
 
 <header>
   <img src="logo.png" alt="ICSA">
-  <div class="lang">English | العربية</div>
+  <div class="lang" onclick="toggleLang()">
+  <span id="currentLang">English 🇺🇸</span>
+  <div class="lang-menu" id="langMenu">
+    <div onclick="setLang('fr')">Français 🇫🇷</div>
+    <div onclick="setLang('es')">Español 🇪🇸</div>
+    <div onclick="setLang('ru')">Русский 🇷🇺</div>
+  </div>
+</div>
+
 </header>
 
 <section class="hero">
@@ -300,6 +308,7 @@ footer a{color:#cfe3ff;text-decoration:none;font-size:14px;}
 
 </body>
 </html>
+
 
 
 
