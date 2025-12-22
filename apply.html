@@ -8,6 +8,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
+.country-option input[type="radio"]{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.country-option:has(input[type="radio"]:checked){
+  border-color: #0b3058;
+  background: #eef5ff;
+}
+  
 .country-option{
   display:flex;
   justify-content:space-between;
@@ -342,5 +353,6 @@ window.submitForm = async function(){
 
 </body>
 </html>
+
 
 
