@@ -1,261 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>M-ETA Application | Moeezland ICSA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>M-ETA Application | Moeezland ICSA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:#f2f6fb;
-      color:#0b3058;
-    }
-
-    header{
-      background:#0b3058;
-      padding:14px 24px;
-    }
-
-    .logo-placeholder{
-      width:220px;
-      height:42px;
-      background:rgba(255,255,255,.25);
-      border-radius:6px;
-    }
-
-    .container{
-      max-width:760px;
-      margin:50px auto;
-      background:#fff;
-      padding:36px;
-      border-radius:14px;
-      box-shadow:0 10px 30px rgba(0,0,0,.08);
-    }
-
-    h1,h2{ margin-top:0; }
-    p{ line-height:1.6; }
-
-    .hidden{ display:none; }
-
-    .btn{
-      background:#0b3058;
-      color:#fff;
-      border:none;
-      padding:12px 22px;
-      border-radius:10px;
-      cursor:pointer;
-      font-size:15px;
-      margin-top:20px;
-    }
-
-    .btn:hover{ opacity:.9; }
-
-    .field{
-      margin-bottom:18px;
-    }
-
-    label{
-      display:block;
-      font-weight:600;
-      margin-bottom:6px;
-    }
-
-    input, select{
-      width:100%;
-      padding:12px;
-      border-radius:8px;
-      border:1px solid #ccc;
-      font-size:14px;
-    }
-
-    small{ color:#555; }
-
-    .error-box{
-      background:#fdeaea;
-      border-left:5px solid #c62828;
-      padding:20px;
-      border-radius:8px;
-      margin-top:20px;
-      color:#8a1c1c;
-    }
-
-    .declaration{
-      background:#f7f9fc;
-      border:1px solid #d6e0ea;
-      padding:18px 20px;
-      border-radius:10px;
-      margin-top:24px;
-      font-size:14px;
-    }
-
-    .declaration label{
-      display:flex;
-      align-items:flex-start;   /* 👈 KEY FIX */
-      gap:12px;
-      font-weight:400;
-      line-height:1.6;
-    }
-
-    .declaration input[type="checkbox"]{
-      margin-top:3px;           /* 👈 aligns checkbox nicely */
-    }
-
-  </style>
+<style>
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:#f2f6fb;
+  color:#0b3058;
+}
+header{background:#0b3058;padding:14px 24px;}
+.logo-space{width:220px;height:42px;}
+.container{
+  max-width:760px;
+  margin:50px auto;
+  background:#fff;
+  padding:36px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+.hidden{display:none;}
+.field{margin-bottom:18px;}
+label{display:block;font-weight:600;margin-bottom:6px;}
+input,select{
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+small{color:#555;}
+.btn{
+  background:#0b3058;
+  color:#fff;
+  border:none;
+  padding:12px 22px;
+  border-radius:10px;
+  cursor:pointer;
+}
+.error-box{
+  background:#fdeaea;
+  border-left:5px solid #c62828;
+  padding:20px;
+  border-radius:8px;
+  margin-top:20px;
+  color:#8a1c1c;
+}
+.declaration{
+  background:#f7f9fc;
+  border:1px solid #d6e0ea;
+  padding:20px;
+  border-radius:10px;
+  margin-top:24px;
+}
+.declaration-grid{
+  display:grid;
+  grid-template-columns:20px 1fr;
+  gap:14px;
+}
+.declaration-text{font-size:14px;line-height:1.6;}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo-placeholder"></div>
+  <div class="logo-space"></div>
 </header>
 
 <div class="container">
 
-  <!-- PAGE 1 -->
-  <div id="page1">
-    <h1>Apply for M-ETA</h1>
-    <p>
-      You are applying for a <strong>Moeezland Electronic Travel Authorization (M-ETA)</strong>.
-      This authorization allows eligible travelers to seek entry to Moeezland, subject to final checks upon arrival.
-    </p>
+<div id="page1">
+  <h1>Apply for M-ETA</h1>
+  <button class="btn" onclick="showForm()">Get started</button>
+</div>
 
-    <button class="btn" onclick="show('form2')">Get started</button>
+<form id="form2" class="hidden">
+
+<h2>Personal information</h2>
+
+<div class="field">
+  <label>Full legal name *</label>
+  <input id="fullName" required>
+</div>
+
+<div class="field">
+  <label>Date of birth *</label>
+  <input id="dob" type="date" required>
+</div>
+
+<div class="field">
+  <label>Country of residence *</label>
+  <select id="country" required>
+    <option value="">Select</option>
+    <option>Japan</option>
+    <option>Singapore</option>
+    <option>South Korea</option>
+    <option>Switzerland</option>
+    <option>Sweden</option>
+    <option>Denmark</option>
+    <option>Norway</option>
+    <option>Germany</option>
+    <option>France</option>
+    <option>Italy</option>
+    <option>Spain</option>
+    <option>United Kingdom</option>
+    <option>Canada</option>
+    <option>Australia</option>
+    <option>New Zealand</option>
+    <option>Türkiye</option>
+    <option>Malaysia</option>
+    <option>Indonesia</option>
+    <option>Jordan</option>
+    <option>Egypt</option>
+    <option>Palestine</option>
+    <option>Saudi Arabia</option>
+    <option>Pakistan</option>
+    <option>India</option>
+    <option>United States</option>
+  </select>
+</div>
+
+<div class="field">
+  <label>Email *</label>
+  <input id="email" type="email" required>
+</div>
+
+<div class="field">
+  <label>Discord username</label>
+  <input id="discord" placeholder="username#0000">
+  <small>Optional but recommended</small>
+</div>
+
+<div class="declaration">
+  <div class="declaration-grid">
+    <input type="checkbox" id="declare" required>
+    <div class="declaration-text">
+      I declare that the information provided is true and complete.
+      I understand false information may result in refusal or restrictions.
+    </div>
   </div>
+</div>
 
-  <!-- PAGE 2 -->
-  <form id="form2" class="hidden">
+<div id="eligibilityError" class="error-box hidden">
+  <strong>Your country of residence is currently not eligible for M-ETA.</strong><br><br>
+  You are required to obtain a <strong>Visa on Arrival</strong> at the Capital Territory of Moeezland.<br><br>
+  <strong>Location:</strong><br>
+  25°01'26.3"N 67°07'28.8"E
+</div>
 
-    <h1>Personal information</h1>
-
-    <div class="field">
-      <label>Full legal name *</label>
-      <input type="text" required>
-    </div>
-
-    <div class="field">
-      <label>Date of birth *</label>
-      <input type="date" required>
-    </div>
-
-    <div class="field">
-      <label>Country of residence *</label>
-      <select id="countrySelect" required>
-        <option value="">Select your country</option>
-        <option>Japan</option>
-        <option>Singapore</option>
-        <option>South Korea</option>
-        <option>Switzerland</option>
-        <option>Sweden</option>
-        <option>Denmark</option>
-        <option>Norway</option>
-        <option>Germany</option>
-        <option>France</option>
-        <option>Italy</option>
-        <option>Spain</option>
-        <option>United Kingdom</option>
-        <option>Canada</option>
-        <option>Australia</option>
-        <option>New Zealand</option>
-        <option>Türkiye</option>
-        <option>Malaysia</option>
-        <option>Indonesia</option>
-        <option>Jordan</option>
-        <option>Egypt</option>
-        <option>Palestine</option>
-        <option>Saudi Arabia</option>
-
-        <!-- Non-approved countries can still be selected,
-             but will be blocked below -->
-        <option>United States</option>
-        <option>India</option>
-        <option>Pakistan</option>
-        <option>China</option>
-        <option>Bangladesh</option>
-        <option>Brazil</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label>Email address *</label>
-      <input type="email" required>
-    </div>
-
-    <div class="field">
-      <label>Discord username</label>
-      <input type="text" placeholder="username#0000">
-      <small>Optional but strongly recommended for faster communication</small>
-    </div>
-
-    <!-- LEGAL DECLARATION -->
-    <div class="declaration">
-      <label>
-        <input type="checkbox" id="declarationCheck" required>
-        <span>
-          I declare that all information provided in this application is true, accurate, and complete to the best of my knowledge.
-          I understand that providing false, misleading, or incomplete information may result in refusal of entry, revocation of authorization,
-          or future travel restrictions.
-          <br><br>
-          I acknowledge that an M-ETA does not guarantee entry and that final admission is determined upon arrival by the authorities of Moeezland.
-        </span>
-      </label>
-    </div>
-
-    <div class="declaration">
-      <p>
-        <strong>Processing notice:</strong><br>
-        The expected review time for M-ETA applications is up to <strong>7 days</strong>.
-        If additional information or action is required, you will be contacted via
-        <strong>Discord</strong> (if provided) with further instructions.
-      </p>
-    </div>
-
-    <div id="eligibilityError" class="error-box hidden">
-      <strong>Your country of residence is currently not eligible for M-ETA.</strong><br><br>
-      You are required to obtain a <strong>Visa on Arrival</strong> at the Capital Territory of Moeezland.<br><br>
-      <strong>Location:</strong><br>
-      25°01'26.3"N 67°07'28.8"E
-    </div>
-
-    <button class="btn" type="submit">Submit application</button>
-  </form>
+<button class="btn" type="submit">Submit application</button>
+</form>
 
 </div>
 
-<script>
-  const approvedCountries = [
-    "Japan","Singapore","South Korea","Switzerland","Sweden","Denmark","Norway",
-    "Germany","France","Italy","Spain","United Kingdom","Canada","Australia",
-    "New Zealand","Türkiye","Malaysia","Indonesia","Jordan","Egypt","Palestine","Saudi Arabia"
-  ];
+<!-- 🔥 FIREBASE -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-  function show(id){
-    document.querySelectorAll('#page1, #form2')
-      .forEach(e => e.classList.add('hidden'));
-    document.getElementById(id).classList.remove('hidden');
-    window.scrollTo(0,0);
+const firebaseConfig = {
+  apiKey: "AIzaSyCs-pheSxe9bkAqnhG9qOjF7RvFfb9k00A",
+  authDomain: "e-civilian-portal2007.firebaseapp.com",
+  projectId: "e-civilian-portal2007"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const approvedCountries = [
+  "Japan","Singapore","South Korea","Switzerland","Sweden","Denmark","Norway",
+  "Germany","France","Italy","Spain","United Kingdom","Canada","Australia",
+  "New Zealand","Türkiye","Malaysia","Indonesia","Jordan","Egypt","Palestine","Saudi Arabia"
+];
+
+function showForm(){
+  document.getElementById("page1").classList.add("hidden");
+  document.getElementById("form2").classList.remove("hidden");
+}
+
+document.getElementById("form2").addEventListener("submit", async (e)=>{
+  e.preventDefault();
+
+  const country = country.value;
+  const errorBox = document.getElementById("eligibilityError");
+  errorBox.classList.add("hidden");
+
+  if (!approvedCountries.includes(country)) {
+    errorBox.classList.remove("hidden");
+    return;
   }
 
-  document.getElementById("form2").addEventListener("submit", e => {
-    e.preventDefault();
-
-    const country = document.getElementById("countrySelect").value;
-    const errorBox = document.getElementById("eligibilityError");
-
-    errorBox.classList.add("hidden");
-
-    if (!e.target.reportValidity()) return;
-
-    if (!approvedCountries.includes(country)) {
-      errorBox.classList.remove("hidden");
-      return;
-    }
-
-    alert("Application submitted successfully. You will be contacted within 7 days if further steps are required.");
+  await addDoc(collection(db, "applications"), {
+    fullName: fullName.value.trim(),
+    dob: dob.value,
+    country,
+    email: email.value.trim(),
+    discord: discord.value.trim(),
+    declarationAccepted: true,
+    status: "Submitted",
+    submittedAt: serverTimestamp()
   });
+
+  alert("Application submitted successfully.");
+});
 </script>
 
 </body>
 </html>
-
