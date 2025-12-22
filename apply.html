@@ -1,355 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M-ETA Application – Immigration & Civil Status Authority</title>
+  <meta charset="UTF-8">
+  <title>M-ETA Application | Moeezland ICSA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:#f2f6fb;
+      color:#0b3058;
+    }
 
-<style>
-.country-option input[type="radio"]{
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
+    /* HEADER */
+    header{
+      background:#0b3058;
+      color:white;
+      padding:14px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
 
-.country-option:has(input[type="radio"]:checked){
-  border-color: #0b3058;
-  background: #eef5ff;
-}
-  
-.country-option{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:6px 0;
-  cursor:pointer;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:700;
+    }
 
-.country-option:hover{
-  color:#0b3058;
-}
+    .brand span{
+      font-size:14px;
+      opacity:.9;
+    }
 
-.country-option span{
-  font-size:14px;
-}
+    .lang{
+      background:white;
+      color:#0b3058;
+      border:none;
+      padding:6px 10px;
+      border-radius:8px;
+      font-weight:600;
+    }
 
-.country-option input[type="radio"]{
-  transform:scale(1.1);
-}
-  
-:root{
-  --dark:#0b3058;
-  --bg:#eaf0f6;
-  --card:#ffffff;
-  --border:#d6e0ea;
-}
-*{box-sizing:border-box;font-family:Inter,system-ui,sans-serif;}
-body{margin:0;background:var(--bg);color:#111;}
+    .container{
+      max-width:760px;
+      margin:50px auto;
+      background:#fff;
+      padding:36px;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
 
-header{
-  background:#f2f2f2;
-  padding:10px 32px;
-  display:flex;
-  align-items:center;
-  border-bottom:1px solid var(--border);
-}
-header img{height:63px;}
-@media(max-width:768px){
-  header{padding:10px 16px;}
-  header img{height:48px;}
-}
+    h1,h2{ margin-top:0; }
 
-.container{
-  max-width:760px;
-  margin:40px auto;
-  background:#fff;
-  padding:36px;
-  border-radius:6px;
-  border:1px solid var(--border);
-}
+    p{ line-height:1.6; }
 
-.field{margin-bottom:18px;}
-label{display:block;font-size:14px;margin-bottom:6px;font-weight:500;}
-input{
-  width:100%;
-  padding:11px;
-  border:1px solid var(--border);
-  border-radius:4px;
-  font-size:14px;
-}
-.hidden{display:none;}
+    .hidden{ display:none; }
 
-button{
-  background:var(--dark);
-  color:white;
-  border:none;
-  padding:14px 24px;
-  font-size:15px;
-  cursor:pointer;
-  border-radius:4px;
-}
+    .btn{
+      background:#0b3058;
+      color:#fff;
+      border:none;
+      padding:12px 22px;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:15px;
+      margin-top:20px;
+    }
 
-.notice{
-  background:#f1f6fb;
-  border-left:4px solid var(--dark);
-  padding:20px;
-  margin-top:30px;
-  font-size:14px;
-}
+    .btn:hover{ opacity:.9; }
 
-.error{
-  background:#fff1f1;
-  border-left:4px solid #c62828;
-  padding:20px;
-  margin-top:30px;
-  font-size:14px;
-}
-</style>
+    .field{
+      margin-bottom:18px;
+    }
+
+    label{
+      display:block;
+      font-weight:600;
+      margin-bottom:6px;
+    }
+
+    input, select{
+      width:100%;
+      padding:12px;
+      border-radius:8px;
+      border:1px solid #ccc;
+      font-size:14px;
+    }
+
+    small{ color:#555; }
+  </style>
 </head>
 
 <body>
 
 <header>
-  <img src="logo.png" alt="ICSA">
+  <div class="brand">
+    <strong>Immigration & Civil Status Authority</strong>
+    <span>Government of Moeezland</span>
+  </div>
+
+  <select class="lang">
+    <option>English</option>
+  </select>
 </header>
 
 <div class="container">
 
-<h2>M-ETA Application Form</h2>
+  <!-- PAGE 1 -->
+  <div id="page1">
+    <h1>Apply for M-ETA</h1>
+    <p>You are applying for a <strong>Moeezland Electronic Travel Authorization (M-ETA)</strong>.</p>
 
-<div class="field">
-  <label>Full Legal Name *</label>
-  <input id="fullName">
+    <h2>Before you start</h2>
+    <ul>
+      <li>A valid ticket to Pakistan</li>
+    </ul>
+
+    <p>
+      The application must be completed in one session.
+      Inactivity for 30 minutes will reset the process.
+    </p>
+
+    <button class="btn" onclick="nextPage(2)">Get started</button>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div id="page2" class="hidden">
+    <h1>Personal information</h1>
+
+    <div class="field">
+      <label>Full legal name</label>
+      <input type="text" required>
+    </div>
+
+    <div class="field">
+      <label>Date of birth</label>
+      <input type="date" required>
+    </div>
+
+    <div class="field">
+      <label>Country of citizenship</label>
+      <select required>
+        <option value="">Select your country</option>
+        <option>Afghanistan</option>
+        <option>Albania</option>
+        <option>Algeria</option>
+        <option>Andorra</option>
+        <option>Angola</option>
+        <option>Antigua and Barbuda</option>
+        <option>Argentina</option>
+        <option>Armenia</option>
+        <option>Australia</option>
+        <option>Austria</option>
+        <option>Azerbaijan</option>
+        <option>Bahamas</option>
+        <option>Bahrain</option>
+        <option>Bangladesh</option>
+        <option>Barbados</option>
+        <option>Belarus</option>
+        <option>Belgium</option>
+        <option>Belize</option>
+        <option>Benin</option>
+        <option>Bhutan</option>
+        <option>Bolivia</option>
+        <option>Bosnia and Herzegovina</option>
+        <option>Botswana</option>
+        <option>Brazil</option>
+        <option>Brunei</option>
+        <option>Bulgaria</option>
+        <option>Burkina Faso</option>
+        <option>Burundi</option>
+        <option>Cambodia</option>
+        <option>Cameroon</option>
+        <option>Canada</option>
+        <option>Cape Verde</option>
+        <option>Central African Republic</option>
+        <option>Chad</option>
+        <option>Chile</option>
+        <option>China</option>
+        <option>Colombia</option>
+        <option>Comoros</option>
+        <option>Congo</option>
+        <option>Costa Rica</option>
+        <option>Croatia</option>
+        <option>Cuba</option>
+        <option>Cyprus</option>
+        <option>Czech Republic</option>
+        <option>Denmark</option>
+        <option>Djibouti</option>
+        <option>Dominica</option>
+        <option>Dominican Republic</option>
+        <option>East Timor</option>
+        <option>Ecuador</option>
+        <option>Egypt</option>
+        <option>El Salvador</option>
+        <option>Equatorial Guinea</option>
+        <option>Eritrea</option>
+        <option>Estonia</option>
+        <option>Eswatini</option>
+        <option>Ethiopia</option>
+        <option>Fiji</option>
+        <option>Finland</option>
+        <option>France</option>
+        <option>Gabon</option>
+        <option>Gambia</option>
+        <option>Georgia</option>
+        <option>Germany</option>
+        <option>Ghana</option>
+        <option>Greece</option>
+        <option>Grenada</option>
+        <option>Guatemala</option>
+        <option>Guinea</option>
+        <option>Guyana</option>
+        <option>Haiti</option>
+        <option>Honduras</option>
+        <option>Hungary</option>
+        <option>Iceland</option>
+        <option>India</option>
+        <option>Indonesia</option>
+        <option>Iran</option>
+        <option>Iraq</option>
+        <option>Ireland</option>
+        <option>Italy</option>
+        <option>Jamaica</option>
+        <option>Japan</option>
+        <option>Jordan</option>
+        <option>Kazakhstan</option>
+        <option>Kenya</option>
+        <option>Kuwait</option>
+        <option>Laos</option>
+        <option>Latvia</option>
+        <option>Lebanon</option>
+        <option>Libya</option>
+        <option>Liechtenstein</option>
+        <option>Lithuania</option>
+        <option>Luxembourg</option>
+        <option>Malaysia</option>
+        <option>Maldives</option>
+        <option>Mexico</option>
+        <option>Morocco</option>
+        <option>Netherlands</option>
+        <option>New Zealand</option>
+        <option>Nigeria</option>
+        <option>Norway</option>
+        <option>Oman</option>
+        <option>Pakistan</option>
+        <option>Philippines</option>
+        <option>Poland</option>
+        <option>Portugal</option>
+        <option>Qatar</option>
+        <option>Romania</option>
+        <option>Russia</option>
+        <option>Saudi Arabia</option>
+        <option>Singapore</option>
+        <option>South Africa</option>
+        <option>South Korea</option>
+        <option>Spain</option>
+        <option>Sri Lanka</option>
+        <option>Sudan</option>
+        <option>Sweden</option>
+        <option>Switzerland</option>
+        <option>Syria</option>
+        <option>Thailand</option>
+        <option>Turkey</option>
+        <option>Ukraine</option>
+        <option>United Arab Emirates</option>
+        <option>United Kingdom</option>
+        <option>United States</option>
+        <option>Vietnam</option>
+        <option>Yemen</option>
+        <option>Zambia</option>
+        <option>Zimbabwe</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Discord username</label>
+      <input type="text" placeholder="username#0000">
+      <small>Optional but recommended</small>
+    </div>
+
+    <button class="btn" onclick="nextPage(3)">Continue</button>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div id="page3" class="hidden">
+    <h1>Upload ticket screenshot</h1>
+
+    <div class="field">
+      <label>Screenshot of valid ticket to Pakistan</label>
+      <input type="file" accept="image/*" required>
+    </div>
+
+    <button class="btn">Submit application</button>
+  </div>
+
 </div>
 
-<div class="field">
-  <label>Date of Birth *</label>
-  <input id="dob" type="date">
-</div>
-
-<div class="field">
-  <label>Email *</label>
-  <input id="email" type="email">
-</div>
-
-<div class="field">
-  <label class="country-option"><span>Afghanistan</span><input type="radio" name="country" value="Afghanistan"></label>
-  <label class="country-option"><span>Albania</span><input type="radio" name="country" value="Albania"></label>
-  <label class="country-option"><span>Algeria</span><input type="radio" name="country" value="Algeria"></label>
-  <label class="country-option"><span>Andorra</span><input type="radio" name="country" value="Andorra"></label>
-  <label class="country-option"><span>Angola</span><input type="radio" name="country" value="Angola"></label>
-  <label class="country-option"><span>Antigua and Barbuda</span><input type="radio" name="country" value="Antigua and Barbuda"></label>
-  <label class="country-option"><span>Argentina</span><input type="radio" name="country" value="Argentina"></label>
-  <label class="country-option"><span>Armenia</span><input type="radio" name="country" value="Armenia"></label>
-  <label class="country-option"><span>Australia</span><input type="radio" name="country" value="Australia"></label>
-  <label class="country-option"><span>Austria</span><input type="radio" name="country" value="Austria"></label>
-  <label class="country-option"><span>Azerbaijan</span><input type="radio" name="country" value="Azerbaijan"></label>
-  <label class="country-option"><span>Bahamas</span><input type="radio" name="country" value="Bahamas"></label>
-  <label class="country-option"><span>Bahrain</span><input type="radio" name="country" value="Bahrain"></label>
-  <label class="country-option"><span>Bangladesh</span><input type="radio" name="country" value="Bangladesh"></label>
-  <label class="country-option"><span>Barbados</span><input type="radio" name="country" value="Barbados"></label>
-  <label class="country-option"><span>Belarus</span><input type="radio" name="country" value="Belarus"></label>
-  <label class="country-option"><span>Belgium</span><input type="radio" name="country" value="Belgium"></label>
-  <label class="country-option"><span>Belize</span><input type="radio" name="country" value="Belize"></label>
-  <label class="country-option"><span>Benin</span><input type="radio" name="country" value="Benin"></label>
-  <label class="country-option"><span>Bhutan</span><input type="radio" name="country" value="Bhutan"></label>
-  <label class="country-option"><span>Bolivia</span><input type="radio" name="country" value="Bolivia"></label>
-  <label class="country-option"><span>Bosnia and Herzegovina</span><input type="radio" name="country" value="Bosnia and Herzegovina"></label>
-  <label class="country-option"><span>Botswana</span><input type="radio" name="country" value="Botswana"></label>
-  <label class="country-option"><span>Brazil</span><input type="radio" name="country" value="Brazil"></label>
-  <label class="country-option"><span>Brunei</span><input type="radio" name="country" value="Brunei"></label>
-  <label class="country-option"><span>Bulgaria</span><input type="radio" name="country" value="Bulgaria"></label>
-  <label class="country-option"><span>Burkina Faso</span><input type="radio" name="country" value="Burkina Faso"></label>
-  <label class="country-option"><span>Burundi</span><input type="radio" name="country" value="Burundi"></label>
-  <label class="country-option"><span>Cambodia</span><input type="radio" name="country" value="Cambodia"></label>
-  <label class="country-option"><span>Cameroon</span><input type="radio" name="country" value="Cameroon"></label>
-  <label class="country-option"><span>Canada</span><input type="radio" name="country" value="Canada"></label>
-  <label class="country-option"><span>Cape Verde</span><input type="radio" name="country" value="Cape Verde"></label>
-  <label class="country-option"><span>Central African Republic</span><input type="radio" name="country" value="Central African Republic"></label>
-  <label class="country-option"><span>Chad</span><input type="radio" name="country" value="Chad"></label>
-  <label class="country-option"><span>Chile</span><input type="radio" name="country" value="Chile"></label>
-  <label class="country-option"><span>China</span><input type="radio" name="country" value="China"></label>
-  <label class="country-option"><span>Colombia</span><input type="radio" name="country" value="Colombia"></label>
-  <label class="country-option"><span>Comoros</span><input type="radio" name="country" value="Comoros"></label>
-  <label class="country-option"><span>Congo</span><input type="radio" name="country" value="Congo"></label>
-  <label class="country-option"><span>Costa Rica</span><input type="radio" name="country" value="Costa Rica"></label>
-  <label class="country-option"><span>Côte d’Ivoire</span><input type="radio" name="country" value="Côte d’Ivoire"></label>
-  <label class="country-option"><span>Croatia</span><input type="radio" name="country" value="Croatia"></label>
-  <label class="country-option"><span>Cuba</span><input type="radio" name="country" value="Cuba"></label>
-  <label class="country-option"><span>Cyprus</span><input type="radio" name="country" value="Cyprus"></label>
-  <label class="country-option"><span>Czech Republic</span><input type="radio" name="country" value="Czech Republic"></label>
-  <label class="country-option"><span>Denmark</span><input type="radio" name="country" value="Denmark"></label>
-  <label class="country-option"><span>Djibouti</span><input type="radio" name="country" value="Djibouti"></label>
-  <label class="country-option"><span>Dominica</span><input type="radio" name="country" value="Dominica"></label>
-  <label class="country-option"><span>Dominican Republic</span><input type="radio" name="country" value="Dominican Republic"></label>
-  <label class="country-option"><span>Ecuador</span><input type="radio" name="country" value="Ecuador"></label>
-  <label class="country-option"><span>Egypt</span><input type="radio" name="country" value="Egypt"></label>
-  <label class="country-option"><span>El Salvador</span><input type="radio" name="country" value="El Salvador"></label>
-  <label class="country-option"><span>Equatorial Guinea</span><input type="radio" name="country" value="Equatorial Guinea"></label>
-  <label class="country-option"><span>Eritrea</span><input type="radio" name="country" value="Eritrea"></label>
-  <label class="country-option"><span>Estonia</span><input type="radio" name="country" value="Estonia"></label>
-  <label class="country-option"><span>Eswatini</span><input type="radio" name="country" value="Eswatini"></label>
-  <label class="country-option"><span>Ethiopia</span><input type="radio" name="country" value="Ethiopia"></label>
-  <label class="country-option"><span>Fiji</span><input type="radio" name="country" value="Fiji"></label>
-  <label class="country-option"><span>Finland</span><input type="radio" name="country" value="Finland"></label>
-  <label class="country-option"><span>France</span><input type="radio" name="country" value="France"></label>
-  <label class="country-option"><span>Gabon</span><input type="radio" name="country" value="Gabon"></label>
-  <label class="country-option"><span>Gambia</span><input type="radio" name="country" value="Gambia"></label>
-  <label class="country-option"><span>Georgia</span><input type="radio" name="country" value="Georgia"></label>
-  <label class="country-option"><span>Germany</span><input type="radio" name="country" value="Germany"></label>
-  <label class="country-option"><span>Ghana</span><input type="radio" name="country" value="Ghana"></label>
-  <label class="country-option"><span>Greece</span><input type="radio" name="country" value="Greece"></label>
-  <label class="country-option"><span>Grenada</span><input type="radio" name="country" value="Grenada"></label>
-  <label class="country-option"><span>Guatemala</span><input type="radio" name="country" value="Guatemala"></label>
-  <label class="country-option"><span>Guinea</span><input type="radio" name="country" value="Guinea"></label>
-  <label class="country-option"><span>Guinea-Bissau</span><input type="radio" name="country" value="Guinea-Bissau"></label>
-  <label class="country-option"><span>Guyana</span><input type="radio" name="country" value="Guyana"></label>
-  <label class="country-option"><span>Haiti</span><input type="radio" name="country" value="Haiti"></label>
-  <label class="country-option"><span>Honduras</span><input type="radio" name="country" value="Honduras"></label>
-  <label class="country-option"><span>Hungary</span><input type="radio" name="country" value="Hungary"></label>
-  <label class="country-option"><span>Iceland</span><input type="radio" name="country" value="Iceland"></label>
-  <label class="country-option"><span>India</span><input type="radio" name="country" value="India"></label>
-  <label class="country-option"><span>Indonesia</span><input type="radio" name="country" value="Indonesia"></label>
-  <label class="country-option"><span>Iran</span><input type="radio" name="country" value="Iran"></label>
-  <label class="country-option"><span>Iraq</span><input type="radio" name="country" value="Iraq"></label>
-  <label class="country-option"><span>Ireland</span><input type="radio" name="country" value="Ireland"></label>
-  <label class="country-option"><span>Israel</span><input type="radio" name="country" value="Israel"></label>
-  <label class="country-option"><span>Italy</span><input type="radio" name="country" value="Italy"></label>
-  <label class="country-option"><span>Jamaica</span><input type="radio" name="country" value="Jamaica"></label>
-  <label class="country-option"><span>Japan</span><input type="radio" name="country" value="Japan"></label>
-  <label class="country-option"><span>Jordan</span><input type="radio" name="country" value="Jordan"></label>
-  <label class="country-option"><span>Kazakhstan</span><input type="radio" name="country" value="Kazakhstan"></label>
-  <label class="country-option"><span>Kenya</span><input type="radio" name="country" value="Kenya"></label>
-  <label class="country-option"><span>Kiribati</span><input type="radio" name="country" value="Kiribati"></label>
-  <label class="country-option"><span>Kuwait</span><input type="radio" name="country" value="Kuwait"></label>
-  <label class="country-option"><span>Kyrgyzstan</span><input type="radio" name="country" value="Kyrgyzstan"></label>
-  <label class="country-option"><span>Laos</span><input type="radio" name="country" value="Laos"></label>
-  <label class="country-option"><span>Latvia</span><input type="radio" name="country" value="Latvia"></label>
-  <label class="country-option"><span>Lebanon</span><input type="radio" name="country" value="Lebanon"></label>
-  <label class="country-option"><span>Lesotho</span><input type="radio" name="country" value="Lesotho"></label>
-  <label class="country-option"><span>Liberia</span><input type="radio" name="country" value="Liberia"></label>
-  <label class="country-option"><span>Libya</span><input type="radio" name="country" value="Libya"></label>
-  <label class="country-option"><span>Liechtenstein</span><input type="radio" name="country" value="Liechtenstein"></label>
-  <label class="country-option"><span>Lithuania</span><input type="radio" name="country" value="Lithuania"></label>
-  <label class="country-option"><span>Luxembourg</span><input type="radio" name="country" value="Luxembourg"></label>
-  <label class="country-option"><span>Malaysia</span><input type="radio" name="country" value="Malaysia"></label>
-  <label class="country-option"><span>Maldives</span><input type="radio" name="country" value="Maldives"></label>
-  <label class="country-option"><span>Malta</span><input type="radio" name="country" value="Malta"></label>
-  <label class="country-option"><span>Mexico</span><input type="radio" name="country" value="Mexico"></label>
-  <label class="country-option"><span>Monaco</span><input type="radio" name="country" value="Monaco"></label>
-  <label class="country-option"><span>Mongolia</span><input type="radio" name="country" value="Mongolia"></label>
-  <label class="country-option"><span>Morocco</span><input type="radio" name="country" value="Morocco"></label>
-  <label class="country-option"><span>Netherlands</span><input type="radio" name="country" value="Netherlands"></label>
-  <label class="country-option"><span>New Zealand</span><input type="radio" name="country" value="New Zealand"></label>
-  <label class="country-option"><span>Nigeria</span><input type="radio" name="country" value="Nigeria"></label>
-  <label class="country-option"><span>Norway</span><input type="radio" name="country" value="Norway"></label>
-  <label class="country-option"><span>Oman</span><input type="radio" name="country" value="Oman"></label>
-  <label class="country-option"><span>Pakistan</span><input type="radio" name="country" value="Pakistan"></label>
-  <label class="country-option"><span>Philippines</span><input type="radio" name="country" value="Philippines"></label>
-  <label class="country-option"><span>Poland</span><input type="radio" name="country" value="Poland"></label>
-  <label class="country-option"><span>Portugal</span><input type="radio" name="country" value="Portugal"></label>
-  <label class="country-option"><span>Qatar</span><input type="radio" name="country" value="Qatar"></label>
-  <label class="country-option"><span>Romania</span><input type="radio" name="country" value="Romania"></label>
-  <label class="country-option"><span>Russia</span><input type="radio" name="country" value="Russia"></label>
-  <label class="country-option"><span>Saudi Arabia</span><input type="radio" name="country" value="Saudi Arabia"></label>
-  <label class="country-option"><span>Singapore</span><input type="radio" name="country" value="Singapore"></label>
-  <label class="country-option"><span>South Africa</span><input type="radio" name="country" value="South Africa"></label>
-  <label class="country-option"><span>South Korea</span><input type="radio" name="country" value="South Korea"></label>
-  <label class="country-option"><span>Spain</span><input type="radio" name="country" value="Spain"></label>
-  <label class="country-option"><span>Sweden</span><input type="radio" name="country" value="Sweden"></label>
-  <label class="country-option"><span>Switzerland</span><input type="radio" name="country" value="Switzerland"></label>
-  <label class="country-option"><span>Taiwan</span><input type="radio" name="country" value="Taiwan"></label>
-  <label class="country-option"><span>Thailand</span><input type="radio" name="country" value="Thailand"></label>
-  <label class="country-option"><span>Türkiye</span><input type="radio" name="country" value="Türkiye"></label>
-  <label class="country-option"><span>Ukraine</span><input type="radio" name="country" value="Ukraine"></label>
-  <label class="country-option"><span>United Arab Emirates</span><input type="radio" name="country" value="United Arab Emirates"></label>
-  <label class="country-option"><span>United Kingdom</span><input type="radio" name="country" value="United Kingdom"></label>
-  <label class="country-option"><span>United States</span><input type="radio" name="country" value="United States"></label>
-  <label class="country-option"><span>Vietnam</span><input type="radio" name="country" value="Vietnam"></label>
-  <label class="country-option"><span>Yemen</span><input type="radio" name="country" value="Yemen"></label>
-  <label class="country-option"><span>Zambia</span><input type="radio" name="country" value="Zambia"></label>
-  <label class="country-option"><span>Zimbabwe</span><input type="radio" name="country" value="Zimbabwe"></label>
-  <label class="country-option"><span>Palestine</span><input type="radio" name="country" value="Palestine"></label>
-  <label class="country-option"><span>Vatican City</span><input type="radio" name="country" value="Vatican City"></label>
-
-
-</div>
-
-<button onclick="submitForm()">Submit M-ETA Application</button>
-
-<div id="approvedMsg" class="notice hidden">
-  Your country of residence is eligible for the Moeezland Electronic Travel Authorization (M-ETA).  
-  Your application has been successfully submitted for review.
-</div>
-
-<div id="rejectedMsg" class="error hidden">
-  Your country of residence is currently <strong>not eligible</strong> for M-ETA.<br><br>
-  You are required to obtain a <strong>Visa on Arrival</strong> at the Capital Territory of Moeezland.<br><br>
-  <strong>Location:</strong><br>
-  25°01'26.3"N 67°07'28.8"E
-</div>
-
-</div>
-
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCs-pheSxe9bkAqnhG9qOjF7RvFfb9k00A",
-  authDomain: "e-civilian-portal2007.firebaseapp.com",
-  projectId: "e-civilian-portal2007"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// ✅ APPROVED COUNTRIES FOR M-ETA
-const approvedCountries = [
-  "Japan","Singapore","South Korea","Switzerland","Sweden","Denmark","Norway",
-  "Germany","France","Italy","Spain","United Kingdom","Canada","Australia",
-  "New Zealand","Türkiye","Malaysia","Indonesia","Jordan","Egypt","Palestine","Saudi Arabia"
-];
-
-window.submitForm = async function(){
-
-  const fullName = document.getElementById("fullName").value.trim();
-  const dob = document.getElementById("dob").value;
-  const email = document.getElementById("email").value.trim();
-  const country = document.querySelector('input[name="country"]:checked')?.value;
-
-  document.getElementById("approvedMsg").classList.add("hidden");
-  document.getElementById("rejectedMsg").classList.add("hidden");
-
-  if(!fullName || !dob || !email || !country){
-    alert("Please complete all required fields.");
-    return;
+<script>
+  function nextPage(p){
+    document.querySelectorAll('[id^="page"]').forEach(e => e.classList.add('hidden'));
+    document.getElementById('page'+p).classList.remove('hidden');
+    window.scrollTo(0,0);
   }
-
-  if(!approvedCountries.includes(country)){
-    document.getElementById("rejectedMsg").classList.remove("hidden");
-    return;
-  }
-
-  await addDoc(collection(db, "applications"), {
-    fullName,
-    dob,
-    email,
-    country,
-    type: "M-ETA",
-    status: "Submitted",
-    createdAt: serverTimestamp()
-  });
-
-  document.getElementById("approvedMsg").classList.remove("hidden");
-};
 </script>
 
 </body>
 </html>
-
-
-
-
