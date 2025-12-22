@@ -8,6 +8,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
+.country-option{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:4px;
+  margin-bottom:8px;
+  cursor:pointer;
+  background:#fff;
+}
+
+.country-option:hover{
+  background:#f6f9fc;
+}
+
+.country-option span{
+  font-size:14px;
+}
+
+.country-option input[type="radio"]{
+  transform:scale(1.1);
+}
+  
 :root{
   --dark:#0b3058;
   --bg:#eaf0f6;
@@ -104,142 +128,145 @@ button{
 </div>
 
 <div class="field">
-  <label>Select your country of residence *</label>
-  <label><input type="radio" name="country" value="Afghanistan"> Afghanistan</label>
-  <label><input type="radio" name="country" value="Albania"> Albania</label>
-  <label><input type="radio" name="country" value="Algeria"> Algeria</label>
-  <label><input type="radio" name="country" value="Andorra"> Andorra</label>
-  <label><input type="radio" name="country" value="Angola"> Angola</label>
-  <label><input type="radio" name="country" value="Antigua and Barbuda"> Antigua and Barbuda</label>
-  <label><input type="radio" name="country" value="Argentina"> Argentina</label>
-  <label><input type="radio" name="country" value="Armenia"> Armenia</label>
-  <label><input type="radio" name="country" value="Australia"> Australia</label>
-  <label><input type="radio" name="country" value="Austria"> Austria</label>
-  <label><input type="radio" name="country" value="Azerbaijan"> Azerbaijan</label>
-  <label><input type="radio" name="country" value="Bahamas"> Bahamas</label>
-  <label><input type="radio" name="country" value="Bahrain"> Bahrain</label>
-  <label><input type="radio" name="country" value="Bangladesh"> Bangladesh</label>
-  <label><input type="radio" name="country" value="Barbados"> Barbados</label>
-  <label><input type="radio" name="country" value="Belarus"> Belarus</label>
-  <label><input type="radio" name="country" value="Belgium"> Belgium</label>
-  <label><input type="radio" name="country" value="Belize"> Belize</label>
-  <label><input type="radio" name="country" value="Benin"> Benin</label>
-  <label><input type="radio" name="country" value="Bhutan"> Bhutan</label>
-  <label><input type="radio" name="country" value="Bolivia"> Bolivia</label>
-  <label><input type="radio" name="country" value="Bosnia and Herzegovina"> Bosnia and Herzegovina</label>
-  <label><input type="radio" name="country" value="Botswana"> Botswana</label>
-  <label><input type="radio" name="country" value="Brazil"> Brazil</label>
-  <label><input type="radio" name="country" value="Brunei"> Brunei</label>
-  <label><input type="radio" name="country" value="Bulgaria"> Bulgaria</label>
-  <label><input type="radio" name="country" value="Burkina Faso"> Burkina Faso</label>
-  <label><input type="radio" name="country" value="Burundi"> Burundi</label>
-  <label><input type="radio" name="country" value="Cambodia"> Cambodia</label>
-  <label><input type="radio" name="country" value="Cameroon"> Cameroon</label>
-  <label><input type="radio" name="country" value="Canada"> Canada</label>
-  <label><input type="radio" name="country" value="Cape Verde"> Cape Verde</label>
-  <label><input type="radio" name="country" value="Central African Republic"> Central African Republic</label>
-  <label><input type="radio" name="country" value="Chad"> Chad</label>
-  <label><input type="radio" name="country" value="Chile"> Chile</label>
-  <label><input type="radio" name="country" value="China"> China</label>
-  <label><input type="radio" name="country" value="Colombia"> Colombia</label>
-  <label><input type="radio" name="country" value="Comoros"> Comoros</label>
-  <label><input type="radio" name="country" value="Congo"> Congo</label>
-  <label><input type="radio" name="country" value="Costa Rica"> Costa Rica</label>
-  <label><input type="radio" name="country" value="Côte d’Ivoire"> Côte d’Ivoire</label>
-  <label><input type="radio" name="country" value="Croatia"> Croatia</label>
-  <label><input type="radio" name="country" value="Cuba"> Cuba</label>
-  <label><input type="radio" name="country" value="Cyprus"> Cyprus</label>
-  <label><input type="radio" name="country" value="Czech Republic"> Czech Republic</label>
-  <label><input type="radio" name="country" value="Denmark"> Denmark</label>
-  <label><input type="radio" name="country" value="Djibouti"> Djibouti</label>
-  <label><input type="radio" name="country" value="Dominica"> Dominica</label>
-  <label><input type="radio" name="country" value="Dominican Republic"> Dominican Republic</label>
-  <label><input type="radio" name="country" value="Ecuador"> Ecuador</label>
-  <label><input type="radio" name="country" value="Egypt"> Egypt</label>
-  <label><input type="radio" name="country" value="El Salvador"> El Salvador</label>
-  <label><input type="radio" name="country" value="Equatorial Guinea"> Equatorial Guinea</label>
-  <label><input type="radio" name="country" value="Eritrea"> Eritrea</label>
-  <label><input type="radio" name="country" value="Estonia"> Estonia</label>
-  <label><input type="radio" name="country" value="Eswatini"> Eswatini</label>
-  <label><input type="radio" name="country" value="Ethiopia"> Ethiopia</label>
-  <label><input type="radio" name="country" value="Fiji"> Fiji</label>
-  <label><input type="radio" name="country" value="Finland"> Finland</label>
-  <label><input type="radio" name="country" value="France"> France</label>
-  <label><input type="radio" name="country" value="Gabon"> Gabon</label>
-  <label><input type="radio" name="country" value="Gambia"> Gambia</label>
-  <label><input type="radio" name="country" value="Georgia"> Georgia</label>
-  <label><input type="radio" name="country" value="Germany"> Germany</label>
-  <label><input type="radio" name="country" value="Ghana"> Ghana</label>
-  <label><input type="radio" name="country" value="Greece"> Greece</label>
-  <label><input type="radio" name="country" value="Grenada"> Grenada</label>
-  <label><input type="radio" name="country" value="Guatemala"> Guatemala</label>
-  <label><input type="radio" name="country" value="Guinea"> Guinea</label>
-  <label><input type="radio" name="country" value="Guinea-Bissau"> Guinea-Bissau</label>
-  <label><input type="radio" name="country" value="Guyana"> Guyana</label>
-  <label><input type="radio" name="country" value="Haiti"> Haiti</label>
-  <label><input type="radio" name="country" value="Honduras"> Honduras</label>
-  <label><input type="radio" name="country" value="Hungary"> Hungary</label>
-  <label><input type="radio" name="country" value="Iceland"> Iceland</label>
-  <label><input type="radio" name="country" value="India"> India</label>
-  <label><input type="radio" name="country" value="Indonesia"> Indonesia</label>
-  <label><input type="radio" name="country" value="Iran"> Iran</label>
-  <label><input type="radio" name="country" value="Iraq"> Iraq</label>
-  <label><input type="radio" name="country" value="Ireland"> Ireland</label>
-  <label><input type="radio" name="country" value="Israel"> Israel</label>
-  <label><input type="radio" name="country" value="Italy"> Italy</label>
-  <label><input type="radio" name="country" value="Jamaica"> Jamaica</label>
-  <label><input type="radio" name="country" value="Japan"> Japan</label>
-  <label><input type="radio" name="country" value="Jordan"> Jordan</label>
-  <label><input type="radio" name="country" value="Kazakhstan"> Kazakhstan</label>
-  <label><input type="radio" name="country" value="Kenya"> Kenya</label>
-  <label><input type="radio" name="country" value="Kiribati"> Kiribati</label>
-  <label><input type="radio" name="country" value="Kuwait"> Kuwait</label>
-  <label><input type="radio" name="country" value="Kyrgyzstan"> Kyrgyzstan</label>
-  <label><input type="radio" name="country" value="Laos"> Laos</label>
-  <label><input type="radio" name="country" value="Latvia"> Latvia</label>
-  <label><input type="radio" name="country" value="Lebanon"> Lebanon</label>
-  <label><input type="radio" name="country" value="Lesotho"> Lesotho</label>
-  <label><input type="radio" name="country" value="Liberia"> Liberia</label>
-  <label><input type="radio" name="country" value="Libya"> Libya</label>
-  <label><input type="radio" name="country" value="Liechtenstein"> Liechtenstein</label>
-  <label><input type="radio" name="country" value="Lithuania"> Lithuania</label>
-  <label><input type="radio" name="country" value="Luxembourg"> Luxembourg</label>
-  <label><input type="radio" name="country" value="Malaysia"> Malaysia</label>
-  <label><input type="radio" name="country" value="Maldives"> Maldives</label>
-  <label><input type="radio" name="country" value="Malta"> Malta</label>
-  <label><input type="radio" name="country" value="Mexico"> Mexico</label>
-  <label><input type="radio" name="country" value="Monaco"> Monaco</label>
-  <label><input type="radio" name="country" value="Mongolia"> Mongolia</label>
-  <label><input type="radio" name="country" value="Morocco"> Morocco</label>
-  <label><input type="radio" name="country" value="Netherlands"> Netherlands</label>
-  <label><input type="radio" name="country" value="New Zealand"> New Zealand</label>
-  <label><input type="radio" name="country" value="Nigeria"> Nigeria</label>
-  <label><input type="radio" name="country" value="Norway"> Norway</label>
-  <label><input type="radio" name="country" value="Pakistan"> Pakistan</label>
-  <label><input type="radio" name="country" value="Philippines"> Philippines</label>
-  <label><input type="radio" name="country" value="Poland"> Poland</label>
-  <label><input type="radio" name="country" value="Portugal"> Portugal</label>
-  <label><input type="radio" name="country" value="Qatar"> Qatar</label>
-  <label><input type="radio" name="country" value="Romania"> Romania</label>
-  <label><input type="radio" name="country" value="Russia"> Russia</label>
-  <label><input type="radio" name="country" value="Saudi Arabia"> Saudi Arabia</label>
-  <label><input type="radio" name="country" value="Singapore"> Singapore</label>
-  <label><input type="radio" name="country" value="South Africa"> South Africa</label>
-  <label><input type="radio" name="country" value="South Korea"> South Korea</label>
-  <label><input type="radio" name="country" value="Spain"> Spain</label>
-  <label><input type="radio" name="country" value="Sweden"> Sweden</label>
-  <label><input type="radio" name="country" value="Switzerland"> Switzerland</label>
-  <label><input type="radio" name="country" value="Taiwan"> Taiwan</label>
-  <label><input type="radio" name="country" value="Thailand"> Thailand</label>
-  <label><input type="radio" name="country" value="Türkiye"> Türkiye</label>
-  <label><input type="radio" name="country" value="Ukraine"> Ukraine</label>
-  <label><input type="radio" name="country" value="United Arab Emirates"> United Arab Emirates</label>
-  <label><input type="radio" name="country" value="United Kingdom"> United Kingdom</label>
-  <label><input type="radio" name="country" value="United States"> United States</label>
-  <label><input type="radio" name="country" value="Vietnam"> Vietnam</label>
-  <label><input type="radio" name="country" value="Yemen"> Yemen</label>
-  <label><input type="radio" name="country" value="Zambia"> Zambia</label>
-  <label><input type="radio" name="country" value="Zimbabwe"> Zimbabwe</label>
+  <label class="country-option"><span>Afghanistan</span><input type="radio" name="country" value="Afghanistan"></label>
+  <label class="country-option"><span>Albania</span><input type="radio" name="country" value="Albania"></label>
+  <label class="country-option"><span>Algeria</span><input type="radio" name="country" value="Algeria"></label>
+  <label class="country-option"><span>Andorra</span><input type="radio" name="country" value="Andorra"></label>
+  <label class="country-option"><span>Angola</span><input type="radio" name="country" value="Angola"></label>
+  <label class="country-option"><span>Antigua and Barbuda</span><input type="radio" name="country" value="Antigua and Barbuda"></label>
+  <label class="country-option"><span>Argentina</span><input type="radio" name="country" value="Argentina"></label>
+  <label class="country-option"><span>Armenia</span><input type="radio" name="country" value="Armenia"></label>
+  <label class="country-option"><span>Australia</span><input type="radio" name="country" value="Australia"></label>
+  <label class="country-option"><span>Austria</span><input type="radio" name="country" value="Austria"></label>
+  <label class="country-option"><span>Azerbaijan</span><input type="radio" name="country" value="Azerbaijan"></label>
+  <label class="country-option"><span>Bahamas</span><input type="radio" name="country" value="Bahamas"></label>
+  <label class="country-option"><span>Bahrain</span><input type="radio" name="country" value="Bahrain"></label>
+  <label class="country-option"><span>Bangladesh</span><input type="radio" name="country" value="Bangladesh"></label>
+  <label class="country-option"><span>Barbados</span><input type="radio" name="country" value="Barbados"></label>
+  <label class="country-option"><span>Belarus</span><input type="radio" name="country" value="Belarus"></label>
+  <label class="country-option"><span>Belgium</span><input type="radio" name="country" value="Belgium"></label>
+  <label class="country-option"><span>Belize</span><input type="radio" name="country" value="Belize"></label>
+  <label class="country-option"><span>Benin</span><input type="radio" name="country" value="Benin"></label>
+  <label class="country-option"><span>Bhutan</span><input type="radio" name="country" value="Bhutan"></label>
+  <label class="country-option"><span>Bolivia</span><input type="radio" name="country" value="Bolivia"></label>
+  <label class="country-option"><span>Bosnia and Herzegovina</span><input type="radio" name="country" value="Bosnia and Herzegovina"></label>
+  <label class="country-option"><span>Botswana</span><input type="radio" name="country" value="Botswana"></label>
+  <label class="country-option"><span>Brazil</span><input type="radio" name="country" value="Brazil"></label>
+  <label class="country-option"><span>Brunei</span><input type="radio" name="country" value="Brunei"></label>
+  <label class="country-option"><span>Bulgaria</span><input type="radio" name="country" value="Bulgaria"></label>
+  <label class="country-option"><span>Burkina Faso</span><input type="radio" name="country" value="Burkina Faso"></label>
+  <label class="country-option"><span>Burundi</span><input type="radio" name="country" value="Burundi"></label>
+  <label class="country-option"><span>Cambodia</span><input type="radio" name="country" value="Cambodia"></label>
+  <label class="country-option"><span>Cameroon</span><input type="radio" name="country" value="Cameroon"></label>
+  <label class="country-option"><span>Canada</span><input type="radio" name="country" value="Canada"></label>
+  <label class="country-option"><span>Cape Verde</span><input type="radio" name="country" value="Cape Verde"></label>
+  <label class="country-option"><span>Central African Republic</span><input type="radio" name="country" value="Central African Republic"></label>
+  <label class="country-option"><span>Chad</span><input type="radio" name="country" value="Chad"></label>
+  <label class="country-option"><span>Chile</span><input type="radio" name="country" value="Chile"></label>
+  <label class="country-option"><span>China</span><input type="radio" name="country" value="China"></label>
+  <label class="country-option"><span>Colombia</span><input type="radio" name="country" value="Colombia"></label>
+  <label class="country-option"><span>Comoros</span><input type="radio" name="country" value="Comoros"></label>
+  <label class="country-option"><span>Congo</span><input type="radio" name="country" value="Congo"></label>
+  <label class="country-option"><span>Costa Rica</span><input type="radio" name="country" value="Costa Rica"></label>
+  <label class="country-option"><span>Côte d’Ivoire</span><input type="radio" name="country" value="Côte d’Ivoire"></label>
+  <label class="country-option"><span>Croatia</span><input type="radio" name="country" value="Croatia"></label>
+  <label class="country-option"><span>Cuba</span><input type="radio" name="country" value="Cuba"></label>
+  <label class="country-option"><span>Cyprus</span><input type="radio" name="country" value="Cyprus"></label>
+  <label class="country-option"><span>Czech Republic</span><input type="radio" name="country" value="Czech Republic"></label>
+  <label class="country-option"><span>Denmark</span><input type="radio" name="country" value="Denmark"></label>
+  <label class="country-option"><span>Djibouti</span><input type="radio" name="country" value="Djibouti"></label>
+  <label class="country-option"><span>Dominica</span><input type="radio" name="country" value="Dominica"></label>
+  <label class="country-option"><span>Dominican Republic</span><input type="radio" name="country" value="Dominican Republic"></label>
+  <label class="country-option"><span>Ecuador</span><input type="radio" name="country" value="Ecuador"></label>
+  <label class="country-option"><span>Egypt</span><input type="radio" name="country" value="Egypt"></label>
+  <label class="country-option"><span>El Salvador</span><input type="radio" name="country" value="El Salvador"></label>
+  <label class="country-option"><span>Equatorial Guinea</span><input type="radio" name="country" value="Equatorial Guinea"></label>
+  <label class="country-option"><span>Eritrea</span><input type="radio" name="country" value="Eritrea"></label>
+  <label class="country-option"><span>Estonia</span><input type="radio" name="country" value="Estonia"></label>
+  <label class="country-option"><span>Eswatini</span><input type="radio" name="country" value="Eswatini"></label>
+  <label class="country-option"><span>Ethiopia</span><input type="radio" name="country" value="Ethiopia"></label>
+  <label class="country-option"><span>Fiji</span><input type="radio" name="country" value="Fiji"></label>
+  <label class="country-option"><span>Finland</span><input type="radio" name="country" value="Finland"></label>
+  <label class="country-option"><span>France</span><input type="radio" name="country" value="France"></label>
+  <label class="country-option"><span>Gabon</span><input type="radio" name="country" value="Gabon"></label>
+  <label class="country-option"><span>Gambia</span><input type="radio" name="country" value="Gambia"></label>
+  <label class="country-option"><span>Georgia</span><input type="radio" name="country" value="Georgia"></label>
+  <label class="country-option"><span>Germany</span><input type="radio" name="country" value="Germany"></label>
+  <label class="country-option"><span>Ghana</span><input type="radio" name="country" value="Ghana"></label>
+  <label class="country-option"><span>Greece</span><input type="radio" name="country" value="Greece"></label>
+  <label class="country-option"><span>Grenada</span><input type="radio" name="country" value="Grenada"></label>
+  <label class="country-option"><span>Guatemala</span><input type="radio" name="country" value="Guatemala"></label>
+  <label class="country-option"><span>Guinea</span><input type="radio" name="country" value="Guinea"></label>
+  <label class="country-option"><span>Guinea-Bissau</span><input type="radio" name="country" value="Guinea-Bissau"></label>
+  <label class="country-option"><span>Guyana</span><input type="radio" name="country" value="Guyana"></label>
+  <label class="country-option"><span>Haiti</span><input type="radio" name="country" value="Haiti"></label>
+  <label class="country-option"><span>Honduras</span><input type="radio" name="country" value="Honduras"></label>
+  <label class="country-option"><span>Hungary</span><input type="radio" name="country" value="Hungary"></label>
+  <label class="country-option"><span>Iceland</span><input type="radio" name="country" value="Iceland"></label>
+  <label class="country-option"><span>India</span><input type="radio" name="country" value="India"></label>
+  <label class="country-option"><span>Indonesia</span><input type="radio" name="country" value="Indonesia"></label>
+  <label class="country-option"><span>Iran</span><input type="radio" name="country" value="Iran"></label>
+  <label class="country-option"><span>Iraq</span><input type="radio" name="country" value="Iraq"></label>
+  <label class="country-option"><span>Ireland</span><input type="radio" name="country" value="Ireland"></label>
+  <label class="country-option"><span>Israel</span><input type="radio" name="country" value="Israel"></label>
+  <label class="country-option"><span>Italy</span><input type="radio" name="country" value="Italy"></label>
+  <label class="country-option"><span>Jamaica</span><input type="radio" name="country" value="Jamaica"></label>
+  <label class="country-option"><span>Japan</span><input type="radio" name="country" value="Japan"></label>
+  <label class="country-option"><span>Jordan</span><input type="radio" name="country" value="Jordan"></label>
+  <label class="country-option"><span>Kazakhstan</span><input type="radio" name="country" value="Kazakhstan"></label>
+  <label class="country-option"><span>Kenya</span><input type="radio" name="country" value="Kenya"></label>
+  <label class="country-option"><span>Kiribati</span><input type="radio" name="country" value="Kiribati"></label>
+  <label class="country-option"><span>Kuwait</span><input type="radio" name="country" value="Kuwait"></label>
+  <label class="country-option"><span>Kyrgyzstan</span><input type="radio" name="country" value="Kyrgyzstan"></label>
+  <label class="country-option"><span>Laos</span><input type="radio" name="country" value="Laos"></label>
+  <label class="country-option"><span>Latvia</span><input type="radio" name="country" value="Latvia"></label>
+  <label class="country-option"><span>Lebanon</span><input type="radio" name="country" value="Lebanon"></label>
+  <label class="country-option"><span>Lesotho</span><input type="radio" name="country" value="Lesotho"></label>
+  <label class="country-option"><span>Liberia</span><input type="radio" name="country" value="Liberia"></label>
+  <label class="country-option"><span>Libya</span><input type="radio" name="country" value="Libya"></label>
+  <label class="country-option"><span>Liechtenstein</span><input type="radio" name="country" value="Liechtenstein"></label>
+  <label class="country-option"><span>Lithuania</span><input type="radio" name="country" value="Lithuania"></label>
+  <label class="country-option"><span>Luxembourg</span><input type="radio" name="country" value="Luxembourg"></label>
+  <label class="country-option"><span>Malaysia</span><input type="radio" name="country" value="Malaysia"></label>
+  <label class="country-option"><span>Maldives</span><input type="radio" name="country" value="Maldives"></label>
+  <label class="country-option"><span>Malta</span><input type="radio" name="country" value="Malta"></label>
+  <label class="country-option"><span>Mexico</span><input type="radio" name="country" value="Mexico"></label>
+  <label class="country-option"><span>Monaco</span><input type="radio" name="country" value="Monaco"></label>
+  <label class="country-option"><span>Mongolia</span><input type="radio" name="country" value="Mongolia"></label>
+  <label class="country-option"><span>Morocco</span><input type="radio" name="country" value="Morocco"></label>
+  <label class="country-option"><span>Netherlands</span><input type="radio" name="country" value="Netherlands"></label>
+  <label class="country-option"><span>New Zealand</span><input type="radio" name="country" value="New Zealand"></label>
+  <label class="country-option"><span>Nigeria</span><input type="radio" name="country" value="Nigeria"></label>
+  <label class="country-option"><span>Norway</span><input type="radio" name="country" value="Norway"></label>
+  <label class="country-option"><span>Oman</span><input type="radio" name="country" value="Oman"></label>
+  <label class="country-option"><span>Pakistan</span><input type="radio" name="country" value="Pakistan"></label>
+  <label class="country-option"><span>Philippines</span><input type="radio" name="country" value="Philippines"></label>
+  <label class="country-option"><span>Poland</span><input type="radio" name="country" value="Poland"></label>
+  <label class="country-option"><span>Portugal</span><input type="radio" name="country" value="Portugal"></label>
+  <label class="country-option"><span>Qatar</span><input type="radio" name="country" value="Qatar"></label>
+  <label class="country-option"><span>Romania</span><input type="radio" name="country" value="Romania"></label>
+  <label class="country-option"><span>Russia</span><input type="radio" name="country" value="Russia"></label>
+  <label class="country-option"><span>Saudi Arabia</span><input type="radio" name="country" value="Saudi Arabia"></label>
+  <label class="country-option"><span>Singapore</span><input type="radio" name="country" value="Singapore"></label>
+  <label class="country-option"><span>South Africa</span><input type="radio" name="country" value="South Africa"></label>
+  <label class="country-option"><span>South Korea</span><input type="radio" name="country" value="South Korea"></label>
+  <label class="country-option"><span>Spain</span><input type="radio" name="country" value="Spain"></label>
+  <label class="country-option"><span>Sweden</span><input type="radio" name="country" value="Sweden"></label>
+  <label class="country-option"><span>Switzerland</span><input type="radio" name="country" value="Switzerland"></label>
+  <label class="country-option"><span>Taiwan</span><input type="radio" name="country" value="Taiwan"></label>
+  <label class="country-option"><span>Thailand</span><input type="radio" name="country" value="Thailand"></label>
+  <label class="country-option"><span>Türkiye</span><input type="radio" name="country" value="Türkiye"></label>
+  <label class="country-option"><span>Ukraine</span><input type="radio" name="country" value="Ukraine"></label>
+  <label class="country-option"><span>United Arab Emirates</span><input type="radio" name="country" value="United Arab Emirates"></label>
+  <label class="country-option"><span>United Kingdom</span><input type="radio" name="country" value="United Kingdom"></label>
+  <label class="country-option"><span>United States</span><input type="radio" name="country" value="United States"></label>
+  <label class="country-option"><span>Vietnam</span><input type="radio" name="country" value="Vietnam"></label>
+  <label class="country-option"><span>Yemen</span><input type="radio" name="country" value="Yemen"></label>
+  <label class="country-option"><span>Zambia</span><input type="radio" name="country" value="Zambia"></label>
+  <label class="country-option"><span>Zimbabwe</span><input type="radio" name="country" value="Zimbabwe"></label>
+  <label class="country-option"><span>Palestine</span><input type="radio" name="country" value="Palestine"></label>
+  <label class="country-option"><span>Vatican City</span><input type="radio" name="country" value="Vatican City"></label>
+
 
 </div>
 
@@ -315,4 +342,5 @@ window.submitForm = async function(){
 
 </body>
 </html>
+
 
