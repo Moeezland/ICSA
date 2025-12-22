@@ -30,6 +30,7 @@ input,select{
   padding:12px;
   border-radius:8px;
   border:1px solid #ccc;
+  font-size:14px;
 }
 small{color:#555;}
 .btn{
@@ -39,6 +40,7 @@ small{color:#555;}
   padding:12px 22px;
   border-radius:10px;
   cursor:pointer;
+  font-size:15px;
 }
 .error-box{
   background:#fdeaea;
@@ -74,7 +76,8 @@ small{color:#555;}
 
 <div id="page1">
   <h1>Apply for M-ETA</h1>
-  <button class="btn" onclick="showForm()">Get started</button>
+  <p>Moeezland Electronic Travel Authorization</p>
+  <button id="startBtn" class="btn">Get started</button>
 </div>
 
 <form id="form2" class="hidden">
@@ -138,8 +141,7 @@ small{color:#555;}
   <div class="declaration-grid">
     <input type="checkbox" id="declare" required>
     <div class="declaration-text">
-      I declare that the information provided is true and complete.
-      I understand false information may result in refusal or restrictions.
+      I declare that the information provided is true and accurate.
     </div>
   </div>
 </div>
@@ -151,24 +153,24 @@ small{color:#555;}
   25°01'26.3"N 67°07'28.8"E
 </div>
 
-<button class="btn" type="submit">Submit application</button>
-</form>
+<button type="submit" class="btn">Submit application</button>
 
+</form>
 </div>
 
-<!-- 🔥 FIREBASE -->
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
-const firebaseConfig = {
+<script>
+// 🔥 FIREBASE INIT
+firebase.initializeApp({
   apiKey: "AIzaSyCs-pheSxe9bkAqnhG9qOjF7RvFfb9k00A",
   authDomain: "e-civilian-portal2007.firebaseapp.com",
   projectId: "e-civilian-portal2007"
-};
+});
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db = firebase.firestore();
 
 const approvedCountries = [
   "Japan","Singapore","South Korea","Switzerland","Sweden","Denmark","Norway",
@@ -176,35 +178,36 @@ const approvedCountries = [
   "New Zealand","Türkiye","Malaysia","Indonesia","Jordan","Egypt","Palestine","Saudi Arabia"
 ];
 
-function showForm(){
+// PAGE SWITCH
+document.getElementById("startBtn").addEventListener("click", () => {
   document.getElementById("page1").classList.add("hidden");
   document.getElementById("form2").classList.remove("hidden");
-}
+});
 
-document.getElementById("form2").addEventListener("submit", async (e)=>{
+// SUBMIT
+document.getElementById("form2").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const country = country.value;
+  const countryVal = country.value;
   const errorBox = document.getElementById("eligibilityError");
   errorBox.classList.add("hidden");
 
-  if (!approvedCountries.includes(country)) {
+  if (!approvedCountries.includes(countryVal)) {
     errorBox.classList.remove("hidden");
     return;
   }
 
-  await addDoc(collection(db, "applications"), {
+  await db.collection("applications").add({
     fullName: fullName.value.trim(),
     dob: dob.value,
-    country,
+    country: countryVal,
     email: email.value.trim(),
     discord: discord.value.trim(),
-    declarationAccepted: true,
     status: "Submitted",
-    submittedAt: serverTimestamp()
+    submittedAt: new Date()
   });
 
-  alert("Application submitted successfully.");
+  alert("Application submitted and saved to database.");
 });
 </script>
 
