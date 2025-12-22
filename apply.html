@@ -13,35 +13,16 @@
       color:#0b3058;
     }
 
-    /* HEADER */
     header{
       background:#0b3058;
-      color:white;
       padding:14px 24px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:700;
-    }
-
-    .brand span{
-      font-size:14px;
-      opacity:.9;
-    }
-
-    .lang{
-      background:white;
-      color:#0b3058;
-      border:none;
-      padding:6px 10px;
-      border-radius:8px;
-      font-weight:600;
+    .logo-placeholder{
+      width:220px;
+      height:42px;
+      background:rgba(255,255,255,.25);
+      border-radius:6px;
     }
 
     .container{
@@ -54,7 +35,6 @@
     }
 
     h1,h2{ margin-top:0; }
-
     p{ line-height:1.6; }
 
     .hidden{ display:none; }
@@ -91,20 +71,38 @@
     }
 
     small{ color:#555; }
+
+    .error-box{
+      background:#fdeaea;
+      border-left:5px solid #c62828;
+      padding:20px;
+      border-radius:8px;
+      margin-top:20px;
+      color:#8a1c1c;
+    }
+
+    .declaration{
+      background:#f7f9fc;
+      border:1px solid #d6e0ea;
+      padding:20px;
+      border-radius:10px;
+      margin-top:24px;
+      font-size:14px;
+    }
+
+    .declaration label{
+      font-weight:500;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
   </style>
 </head>
 
 <body>
 
 <header>
-  <div class="brand">
-    <strong>Immigration & Civil Status Authority</strong>
-    <span>Government of Moeezland</span>
-  </div>
-
-  <select class="lang">
-    <option>English</option>
-  </select>
+  <div class="logo-placeholder"></div>
 </header>
 
 <div class="container">
@@ -112,200 +110,144 @@
   <!-- PAGE 1 -->
   <div id="page1">
     <h1>Apply for M-ETA</h1>
-    <p>You are applying for a <strong>Moeezland Electronic Travel Authorization (M-ETA)</strong>.</p>
-
-    <h2>Before you start</h2>
-    <ul>
-      <li>A valid ticket to Pakistan</li>
-    </ul>
-
     <p>
-      The application must be completed in one session.
-      Inactivity for 30 minutes will reset the process.
+      You are applying for a <strong>Moeezland Electronic Travel Authorization (M-ETA)</strong>.
+      This authorization allows eligible travelers to seek entry to Moeezland, subject to final checks upon arrival.
     </p>
 
-    <button class="btn" onclick="nextPage(2)">Get started</button>
+    <button class="btn" onclick="show('form2')">Get started</button>
   </div>
 
   <!-- PAGE 2 -->
-  <div id="page2" class="hidden">
+  <form id="form2" class="hidden">
+
     <h1>Personal information</h1>
 
     <div class="field">
-      <label>Full legal name</label>
+      <label>Full legal name *</label>
       <input type="text" required>
     </div>
 
     <div class="field">
-      <label>Date of birth</label>
+      <label>Date of birth *</label>
       <input type="date" required>
     </div>
 
     <div class="field">
-      <label>Country of citizenship</label>
-      <select required>
+      <label>Country of residence *</label>
+      <select id="countrySelect" required>
         <option value="">Select your country</option>
-        <option>Afghanistan</option>
-        <option>Albania</option>
-        <option>Algeria</option>
-        <option>Andorra</option>
-        <option>Angola</option>
-        <option>Antigua and Barbuda</option>
-        <option>Argentina</option>
-        <option>Armenia</option>
-        <option>Australia</option>
-        <option>Austria</option>
-        <option>Azerbaijan</option>
-        <option>Bahamas</option>
-        <option>Bahrain</option>
-        <option>Bangladesh</option>
-        <option>Barbados</option>
-        <option>Belarus</option>
-        <option>Belgium</option>
-        <option>Belize</option>
-        <option>Benin</option>
-        <option>Bhutan</option>
-        <option>Bolivia</option>
-        <option>Bosnia and Herzegovina</option>
-        <option>Botswana</option>
-        <option>Brazil</option>
-        <option>Brunei</option>
-        <option>Bulgaria</option>
-        <option>Burkina Faso</option>
-        <option>Burundi</option>
-        <option>Cambodia</option>
-        <option>Cameroon</option>
-        <option>Canada</option>
-        <option>Cape Verde</option>
-        <option>Central African Republic</option>
-        <option>Chad</option>
-        <option>Chile</option>
-        <option>China</option>
-        <option>Colombia</option>
-        <option>Comoros</option>
-        <option>Congo</option>
-        <option>Costa Rica</option>
-        <option>Croatia</option>
-        <option>Cuba</option>
-        <option>Cyprus</option>
-        <option>Czech Republic</option>
-        <option>Denmark</option>
-        <option>Djibouti</option>
-        <option>Dominica</option>
-        <option>Dominican Republic</option>
-        <option>East Timor</option>
-        <option>Ecuador</option>
-        <option>Egypt</option>
-        <option>El Salvador</option>
-        <option>Equatorial Guinea</option>
-        <option>Eritrea</option>
-        <option>Estonia</option>
-        <option>Eswatini</option>
-        <option>Ethiopia</option>
-        <option>Fiji</option>
-        <option>Finland</option>
-        <option>France</option>
-        <option>Gabon</option>
-        <option>Gambia</option>
-        <option>Georgia</option>
-        <option>Germany</option>
-        <option>Ghana</option>
-        <option>Greece</option>
-        <option>Grenada</option>
-        <option>Guatemala</option>
-        <option>Guinea</option>
-        <option>Guyana</option>
-        <option>Haiti</option>
-        <option>Honduras</option>
-        <option>Hungary</option>
-        <option>Iceland</option>
-        <option>India</option>
-        <option>Indonesia</option>
-        <option>Iran</option>
-        <option>Iraq</option>
-        <option>Ireland</option>
-        <option>Italy</option>
-        <option>Jamaica</option>
         <option>Japan</option>
-        <option>Jordan</option>
-        <option>Kazakhstan</option>
-        <option>Kenya</option>
-        <option>Kuwait</option>
-        <option>Laos</option>
-        <option>Latvia</option>
-        <option>Lebanon</option>
-        <option>Libya</option>
-        <option>Liechtenstein</option>
-        <option>Lithuania</option>
-        <option>Luxembourg</option>
-        <option>Malaysia</option>
-        <option>Maldives</option>
-        <option>Mexico</option>
-        <option>Morocco</option>
-        <option>Netherlands</option>
-        <option>New Zealand</option>
-        <option>Nigeria</option>
-        <option>Norway</option>
-        <option>Oman</option>
-        <option>Pakistan</option>
-        <option>Philippines</option>
-        <option>Poland</option>
-        <option>Portugal</option>
-        <option>Qatar</option>
-        <option>Romania</option>
-        <option>Russia</option>
-        <option>Saudi Arabia</option>
         <option>Singapore</option>
-        <option>South Africa</option>
         <option>South Korea</option>
-        <option>Spain</option>
-        <option>Sri Lanka</option>
-        <option>Sudan</option>
-        <option>Sweden</option>
         <option>Switzerland</option>
-        <option>Syria</option>
-        <option>Thailand</option>
-        <option>Turkey</option>
-        <option>Ukraine</option>
-        <option>United Arab Emirates</option>
+        <option>Sweden</option>
+        <option>Denmark</option>
+        <option>Norway</option>
+        <option>Germany</option>
+        <option>France</option>
+        <option>Italy</option>
+        <option>Spain</option>
         <option>United Kingdom</option>
+        <option>Canada</option>
+        <option>Australia</option>
+        <option>New Zealand</option>
+        <option>Türkiye</option>
+        <option>Malaysia</option>
+        <option>Indonesia</option>
+        <option>Jordan</option>
+        <option>Egypt</option>
+        <option>Palestine</option>
+        <option>Saudi Arabia</option>
+
+        <!-- Non-approved countries can still be selected,
+             but will be blocked below -->
         <option>United States</option>
-        <option>Vietnam</option>
-        <option>Yemen</option>
-        <option>Zambia</option>
-        <option>Zimbabwe</option>
+        <option>India</option>
+        <option>Pakistan</option>
+        <option>China</option>
+        <option>Bangladesh</option>
+        <option>Brazil</option>
       </select>
+    </div>
+
+    <div class="field">
+      <label>Email address *</label>
+      <input type="email" required>
     </div>
 
     <div class="field">
       <label>Discord username</label>
       <input type="text" placeholder="username#0000">
-      <small>Optional but recommended</small>
+      <small>Optional but strongly recommended for faster communication</small>
     </div>
 
-    <button class="btn" onclick="nextPage(3)">Continue</button>
-  </div>
-
-  <!-- PAGE 3 -->
-  <div id="page3" class="hidden">
-    <h1>Upload ticket screenshot</h1>
-
-    <div class="field">
-      <label>Screenshot of valid ticket to Pakistan</label>
-      <input type="file" accept="image/*" required>
+    <!-- LEGAL DECLARATION -->
+    <div class="declaration">
+      <label>
+        <input type="checkbox" id="declarationCheck" required>
+        <span>
+          I declare that all information provided in this application is true, accurate, and complete to the best of my knowledge.
+          I understand that providing false, misleading, or incomplete information may result in refusal of entry, revocation of authorization,
+          or future travel restrictions.
+          <br><br>
+          I acknowledge that an M-ETA does not guarantee entry and that final admission is determined upon arrival by the authorities of Moeezland.
+        </span>
+      </label>
     </div>
 
-    <button class="btn">Submit application</button>
-  </div>
+    <div class="declaration">
+      <p>
+        <strong>Processing notice:</strong><br>
+        The expected review time for M-ETA applications is up to <strong>7 days</strong>.
+        If additional information or action is required, you will be contacted via
+        <strong>Discord</strong> (if provided) with further instructions.
+      </p>
+    </div>
+
+    <div id="eligibilityError" class="error-box hidden">
+      <strong>Your country of residence is currently not eligible for M-ETA.</strong><br><br>
+      You are required to obtain a <strong>Visa on Arrival</strong> at the Capital Territory of Moeezland.<br><br>
+      <strong>Location:</strong><br>
+      25°01'26.3"N 67°07'28.8"E
+    </div>
+
+    <button class="btn" type="submit">Submit application</button>
+  </form>
 
 </div>
 
 <script>
-  function nextPage(p){
-    document.querySelectorAll('[id^="page"]').forEach(e => e.classList.add('hidden'));
-    document.getElementById('page'+p).classList.remove('hidden');
+  const approvedCountries = [
+    "Japan","Singapore","South Korea","Switzerland","Sweden","Denmark","Norway",
+    "Germany","France","Italy","Spain","United Kingdom","Canada","Australia",
+    "New Zealand","Türkiye","Malaysia","Indonesia","Jordan","Egypt","Palestine","Saudi Arabia"
+  ];
+
+  function show(id){
+    document.querySelectorAll('#page1, #form2')
+      .forEach(e => e.classList.add('hidden'));
+    document.getElementById(id).classList.remove('hidden');
     window.scrollTo(0,0);
   }
+
+  document.getElementById("form2").addEventListener("submit", e => {
+    e.preventDefault();
+
+    const country = document.getElementById("countrySelect").value;
+    const errorBox = document.getElementById("eligibilityError");
+
+    errorBox.classList.add("hidden");
+
+    if (!e.target.reportValidity()) return;
+
+    if (!approvedCountries.includes(country)) {
+      errorBox.classList.remove("hidden");
+      return;
+    }
+
+    alert("Application submitted successfully. You will be contacted within 7 days if further steps are required.");
+  });
 </script>
 
 </body>
