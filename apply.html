@@ -84,18 +84,24 @@
     .declaration{
       background:#f7f9fc;
       border:1px solid #d6e0ea;
-      padding:20px;
+      padding:18px 20px;
       border-radius:10px;
       margin-top:24px;
       font-size:14px;
     }
 
     .declaration label{
-      font-weight:500;
       display:flex;
-      gap:10px;
-      align-items:flex-start;
+      align-items:flex-start;   /* 👈 KEY FIX */
+      gap:12px;
+      font-weight:400;
+      line-height:1.6;
     }
+
+    .declaration input[type="checkbox"]{
+      margin-top:3px;           /* 👈 aligns checkbox nicely */
+    }
+
   </style>
 </head>
 
@@ -252,3 +258,4 @@
 
 </body>
 </html>
+
