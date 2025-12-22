@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M-ETA Application – Immigration & Civil Status Authority</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --dark:#0b3058;
+  --bg:#eaf0f6;
+  --card:#ffffff;
+  --border:#d6e0ea;
+}
+*{box-sizing:border-box;font-family:Inter,system-ui,sans-serif;}
+body{margin:0;background:var(--bg);color:#111;}
+
+header{
+  background:#f2f2f2;
+  padding:10px 32px;
+  display:flex;
+  align-items:center;
+  border-bottom:1px solid var(--border);
+}
+header img{height:63px;}
+@media(max-width:768px){
+  header{padding:10px 16px;}
+  header img{height:48px;}
+}
+
+.container{
+  max-width:760px;
+  margin:40px auto;
+  background:#fff;
+  padding:36px;
+  border-radius:6px;
+  border:1px solid var(--border);
+}
+
+.field{margin-bottom:18px;}
+label{display:block;font-size:14px;margin-bottom:6px;font-weight:500;}
+input{
+  width:100%;
+  padding:11px;
+  border:1px solid var(--border);
+  border-radius:4px;
+  font-size:14px;
+}
+.hidden{display:none;}
+
+button{
+  background:var(--dark);
+  color:white;
+  border:none;
+  padding:14px 24px;
+  font-size:15px;
+  cursor:pointer;
+  border-radius:4px;
+}
+
+.notice{
+  background:#f1f6fb;
+  border-left:4px solid var(--dark);
+  padding:20px;
+  margin-top:30px;
+  font-size:14px;
+}
+
+.error{
+  background:#fff1f1;
+  border-left:4px solid #c62828;
+  padding:20px;
+  margin-top:30px;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="ICSA">
+</header>
+
+<div class="container">
+
+<h2>M-ETA Application Form</h2>
+
+<div class="field">
+  <label>Full Legal Name *</label>
+  <input id="fullName">
+</div>
+
+<div class="field">
+  <label>Date of Birth *</label>
+  <input id="dob" type="date">
+</div>
+
+<div class="field">
+  <label>Email *</label>
+  <input id="email" type="email">
+</div>
+
+<div class="field">
+  <label>Select your country of residence *</label>
+  <!-- 🔽 PASTE YOUR FULL COUNTRY RADIO LIST HERE -->
+</div>
+
+<button onclick="submitForm()">Submit M-ETA Application</button>
+
+<div id="approvedMsg" class="notice hidden">
+  Your country of residence is eligible for the Moeezland Electronic Travel Authorization (M-ETA).  
+  Your application has been successfully submitted for review.
+</div>
+
+<div id="rejectedMsg" class="error hidden">
+  Your country of residence is currently <strong>not eligible</strong> for M-ETA.<br><br>
+  You are required to obtain a <strong>Visa on Arrival</strong> at the Capital Territory of Moeezland.<br><br>
+  <strong>Location:</strong><br>
+  25°01'26.3"N 67°07'28.8"E
+</div>
+
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCs-pheSxe9bkAqnhG9qOjF7RvFfb9k00A",
+  authDomain: "e-civilian-portal2007.firebaseapp.com",
+  projectId: "e-civilian-portal2007"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// ✅ APPROVED COUNTRIES FOR M-ETA
+const approvedCountries = [
+  "Japan","Singapore","South Korea","Switzerland","Sweden","Denmark","Norway",
+  "Germany","France","Italy","Spain","United Kingdom","Canada","Australia",
+  "New Zealand","Türkiye","Malaysia","Indonesia","Jordan","Egypt","Palestine","Saudi Arabia"
+];
+
+window.submitForm = async function(){
+
+  const fullName = document.getElementById("fullName").value.trim();
+  const dob = document.getElementById("dob").value;
+  const email = document.getElementById("email").value.trim();
+  const country = document.querySelector('input[name="country"]:checked')?.value;
+
+  document.getElementById("approvedMsg").classList.add("hidden");
+  document.getElementById("rejectedMsg").classList.add("hidden");
+
+  if(!fullName || !dob || !email || !country){
+    alert("Please complete all required fields.");
+    return;
+  }
+
+  if(!approvedCountries.includes(country)){
+    document.getElementById("rejectedMsg").classList.remove("hidden");
+    return;
+  }
+
+  await addDoc(collection(db, "applications"), {
+    fullName,
+    dob,
+    email,
+    country,
+    type: "M-ETA",
+    status: "Submitted",
+    createdAt: serverTimestamp()
+  });
+
+  document.getElementById("approvedMsg").classList.remove("hidden");
+};
+</script>
+
+</body>
+</html>
