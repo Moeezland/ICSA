@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Person</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="auth-checking">
+
+<header class="app-header">
+  <div class="header-left">
+    <img src="logo.png" alt="Logo" class="logo" />
+    <h1>Immigration & Civil Status Authority</h1>
+  </div>
+  <div class="header-right">
+    <button onclick="location.href='index.html'">Dashboard</button>
+    <button onclick="logoutOfficer()">Logout</button>
+  </div>
+</header>
+
+<main class="container">
+  <h2>Add New Person</h2>
+
+  <div class="form-card">
+    
+    <label>e-Border ID</label>
+    <input type="text" id="eborder" placeholder="MOE26000010" />
+
+    <label>Full Name</label>
+    <input type="text" id="name" />
+
+    <label>Date of Birth</label>
+    <input type="date" id="dob" />
+
+    <label>Civil Status</label>
+    <select id="civilStatus">
+      <option value="citizen">Citizen</option>
+      <option value="resident">Resident</option>
+      <option value="visitor">Visitor</option>
+    </select>
+
+    <label>Person Status</label>
+    <select id="personStatus">
+      <option value="active">Active</option>
+      <option value="inactive">Inactive</option>
+    </select>
+
+<div class="checkbox-row">
+  <label class="checkbox-label">
+    <input type="checkbox" id="hasCivilId" />
+    Has Civil ID?
+  </label>
+</div>
+
+    <div id="civilIdSection" class="hidden">
+      <label>Civil ID</label>
+      <input type="text" id="civilIdInput" placeholder="729XXXXXXX" />
+    </div>
+
+    <button id="createBtn">Create Person</button>
+
+  </div>
+</main>
+
+<script type="module" src="add-person.js"></script>
+</body>
+</html>

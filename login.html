@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICSA Officer Login</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="app-header">
+  <div class="header-left">
+    <img src="logo.png" alt="Logo" class="logo" />
+    <h1>Immigration & Civil Status Authority</h1>
+  </div>
+</header>
+
+<main class="login-page">
+  <section class="login-card">
+    <div class="login-badge">ICSA OFFICER PORTAL</div>
+    <h2>Officer Login</h2>
+    <p class="login-subtitle">Authorized Immigration & Civil Status Authority officers only.</p>
+
+    <label>Email Address</label>
+    <input type="email" id="email" placeholder="officer@moeezland.com" autocomplete="email" />
+
+    <label>Password</label>
+    <input type="password" id="password" placeholder="Enter password" autocomplete="current-password" />
+
+    <button id="loginBtn">Login</button>
+    <p id="loginMessage" class="login-message"></p>
+  </section>
+</main>
+
+<script type="module" src="login.js"></script>
+</body>
+</html>
